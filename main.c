@@ -4,6 +4,7 @@
 
 void    ft_bzero(void *s, size_t n);
 char*   ft_strcat(char* restrict s1, const char* restrict s2);
+int     ft_puts(const char* str);
 
 int     test_bzero(void) {
     char* str = (char*)malloc(6);
@@ -31,8 +32,16 @@ int     test_strcat(void) {
     free(str2);
     return(EXIT_SUCCESS);
 }
+
+int     test_puts(void) {
+    char* str1 = (char*)malloc(14);
+    strcpy(str1, "Hello world !");
+    ft_puts("X");
+    return (EXIT_SUCCESS);
+}
+
 int     main(int argc, char** argv) {
     
-    printf("%d", test_strcat());
+    printf("%d", test_puts());
     return(EXIT_SUCCESS);
 }
