@@ -1,6 +1,9 @@
 NAME = libfts.a
 
-SRC =	ft_bzero.s \
+OBJ_FOLDER = obj
+SRC_FOLDER = src
+
+SRC_NAME =	ft_bzero.s \
 		ft_strcat.s \
 		ft_isalpha.s \
 		ft_isdigit.s \
@@ -16,9 +19,10 @@ SRC =	ft_bzero.s \
 		ft_strdup.s \
 		ft_cat.s \
 
-OBJ_FOLDER = obj
-OBJ_NAME = $(SRC:.s=.o)
+OBJ_NAME = $(SRC_NAME:.s=.o)
+
 OBJ = $(addprefix $(OBJ_FOLDER)/,$(OBJ_NAME))
+SRC = $(addprefix $(SRC_FOLDER)/,$(SRC_NAME))
 
 .SILENT:
 
@@ -31,7 +35,7 @@ $(NAME): $(OBJ)
 	printf "\n\e[32m----------------------------------\e[36m"
 	printf "\033[0m\n"
 
-$(OBJ_FOLDER)/%.o: %.s
+$(OBJ_FOLDER)/%.o: $(SRC_FOLDER)/%.s
 	mkdir -p $(OBJ_FOLDER)
 	nasm -f macho64 $< -o $@
 	printf "\e[32m[✔]\e[36m $@"
