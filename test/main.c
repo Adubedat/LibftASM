@@ -49,5 +49,7 @@ int     main(int argc, char** argv) {
     test_isdigit();
     test_isascii();
     test_isprint();
+    test_tolower();
+    test_toupper();
     return (0);
 }
