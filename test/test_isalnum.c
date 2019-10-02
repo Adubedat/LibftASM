@@ -1,5 +1,6 @@
 #include "tester.h"
 #include <ctype.h>
+#include <limits.h>
 
 static void test_isalnum_a() {
     assert(isalnum('a'), ft_isalnum('a'));
@@ -37,6 +38,14 @@ static void test_isalnum_bracket() {
     assert(isalnum('['), ft_isalnum('['));
 }
 
+static void test_isalnum_INT_MAX() {
+    assert(isalnum(INT_MAX), ft_isalnum(INT_MAX));
+}
+
+static void test_isalnum_INT_MIN() {
+    assert(isalnum(INT_MIN), ft_isalnum(INT_MIN));
+}
+
 void test_isalnum() {
     printf(CYAN"\nTEST ISALNUM:\n\n"DEFAULT);
     test_isalnum_a();
@@ -48,4 +57,6 @@ void test_isalnum() {
     test_isalnum_neg();
     test_isalnum_slash();
     test_isalnum_bracket();
+    test_isalnum_INT_MAX();
+    test_isalnum_INT_MIN();
 }

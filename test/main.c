@@ -45,5 +45,9 @@ int     main(int argc, char** argv) {
     
     test_bzero();
     test_isalnum();
+    test_isalpha();
+    test_isdigit();
+    test_isascii();
+    test_isprint();
     return (0);
 }
