@@ -1,4 +1,5 @@
 #include "tester.h"
+#include <string.h>
 
 static void test_strcat_hello_world() {
     char s1[32] = { 0 };

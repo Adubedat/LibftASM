@@ -1,4 +1,5 @@
 #include "tester.h"
+#include <ctype.h>
 
 static void test_toupper_A() {
     assert(toupper('A'), ft_toupper('A'));

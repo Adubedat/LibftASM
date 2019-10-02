@@ -1,4 +1,5 @@
 #include "tester.h"
+#include <ctype.h>
 
 static void test_tolower_A() {
     assert(tolower('A'), ft_tolower('A'));
