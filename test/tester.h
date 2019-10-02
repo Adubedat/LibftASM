@@ -2,7 +2,7 @@
 # define TESTER_H
 
 #include <stdio.h>
-#include "libfts.h"
+#include "../include/libfts.h"
 
 #define GREEN       "\033[0;32m"
 #define RED         "\033[0;31m"
@@ -22,5 +22,6 @@
     } while(0)
 
 void                test_bzero();
+void                test_isalnum();
 
 #endif

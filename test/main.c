@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "test/tester.h"
+#include "tester.h"
 
-void    ft_bzero(void *s, size_t n);
+// void    ft_bzero(void *s, size_t n);
 // char*   ft_strcat(char* restrict s1, const char* restrict s2);
 // int     ft_puts(const char* str);
 
@@ -44,5 +44,6 @@ void    ft_bzero(void *s, size_t n);
 int     main(int argc, char** argv) {
     
     test_bzero();
+    test_isalnum();
     return (0);
 }

@@ -1,7 +1,7 @@
 #include <strings.h>
 #include "tester.h"
 
-void    ft_bzero(void *s, size_t n);
+// void    ft_bzero(void *s, size_t n);
 
 static void test_bzero_simple() {
     char s1[16] = { [0 ... 15] = 1};
