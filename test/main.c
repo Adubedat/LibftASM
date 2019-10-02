@@ -51,5 +51,6 @@ int     main(int argc, char** argv) {
     test_isprint();
     test_tolower();
     test_toupper();
+    test_strcat();
     return (0);
 }
