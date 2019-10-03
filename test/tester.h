@@ -35,5 +35,7 @@ void                test_tolower();
 void                test_toupper();
 void                test_strcat();
 void                test_puts();
+void                test_strlen();
+void                test_memset();
 
 #endif

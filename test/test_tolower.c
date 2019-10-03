@@ -30,7 +30,7 @@ static void test_tolower_bracket() {
 }
 
 void test_tolower() {
-    printf(CYAN"\nTEST TOLOWER:\n\n"DEFAULT);
+    printf(CYAN"\nTEST TOLOWER:\n"DEFAULT"\n");
     test_tolower_A();
     test_tolower_Z();
     test_tolower_a();

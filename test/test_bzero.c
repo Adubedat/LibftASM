@@ -16,7 +16,7 @@ static void test_bzero_zero() {
     char s1[16] = { [0 ... 15] = 1};
     char s2[16] = { [0 ... 15] = 1};
 
-    bzero(s1, 0);
+    bzero(s1, (0));
     ft_bzero(s2, 0);
     assert(memcmp(s1, s2, 16), 0);    
 }
