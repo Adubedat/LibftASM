@@ -14,10 +14,10 @@
 #define assert(x, y)                                                \
     do {                                                            \
         if ((x) == (y))                                             \
-            printf(GREEN"%s : ✔\n"DEFAULT,                          \
+            printf(GREEN"%s : ✔"DEFAULT"\n",                        \
             __func__);                                              \
         else                                                        \
-            printf(RED"%s:%d Failed for %s\n"DEFAULT,               \
+            printf(RED"%s:%d Failed for %s"DEFAULT"\n",             \
             __FILE__,                                               \
             __LINE__,                                               \
             __func__);                                              \

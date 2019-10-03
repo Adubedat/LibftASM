@@ -29,12 +29,13 @@ _ft_puts:
     mov rdi, STDOUT                 ; set write stream to STDOUT
     mov rax, MACH_SYSCALL(WRITE)    ; set the syscall to WRITE
     syscall
-    jc .error
+    jc .error                       ; on error, syscall return errno in rax and turn on the carry flag
     lea rsi, [rel new_line]         ; print new line
     mov rax, MACH_SYSCALL(WRITE)
     mov rdx, 1
     syscall
     jc .error
+    mov rax, NEW_LINE               ; return the ascii value of NEW_LINE
     leave                           ; restore stack
     ret
 
