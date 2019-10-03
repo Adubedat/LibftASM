@@ -37,5 +37,6 @@ void                test_strcat();
 void                test_puts();
 void                test_strlen();
 void                test_memset();
+void                test_memcpy();
 
 #endif

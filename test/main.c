@@ -39,5 +39,6 @@ int     main(int argc, char** argv) {
     test_puts();
     test_strlen();
     test_memset();
+    test_memcpy();
     return (0);
 }
