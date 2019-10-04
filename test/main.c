@@ -40,5 +40,6 @@ int     main(int argc, char** argv) {
     test_strlen();
     test_memset();
     test_memcpy();
+    test_strdup();
     return (0);
 }
