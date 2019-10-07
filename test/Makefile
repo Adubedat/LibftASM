@@ -1,45 +1,55 @@
-NAME = libfts.a
+NAME = tests_exe
+
+ROOT = ..
 
 OBJ_FOLDER = obj
-SRC_FOLDER = src
+SRC_FOLDER = ./
+LFT_PATH = $(ROOT)
+DST_PATH = $(ROOT)
 
-SUB_MAKEFILES = test
+CC = gcc
+CFLAGS =
 
-SRC_NAME =	ft_bzero.s \
-		ft_strcat.s \
-		ft_isalpha.s \
-		ft_isdigit.s \
-		ft_isalnum.s \
-		ft_isascii.s \
-		ft_isprint.s \
-		ft_toupper.s \
-		ft_tolower.s \
-		ft_puts.s \
-		ft_strlen.s \
-		ft_memset.s \
-		ft_memcpy.s \
-		ft_strdup.s \
-		ft_cat.s \
+LDFLAGS = -L$(LFT_PATH)
+LDLIBS = -lfts
 
-OBJ_NAME = $(SRC_NAME:.s=.o)
+SRC_NAME =	main.c				\
+			test_bzero.c		\
+			test_cat.c			\
+			test_isalnum.c		\
+			test_isalpha.c		\
+			test_isascii.c		\
+			test_isdigit.c		\
+			test_isprint.c		\
+			test_memcpy.c		\
+			test_memset.c		\
+			test_puts.c			\
+			test_strcat.c		\
+			test_strdup.c		\
+			test_strlen.c		\
+			test_tolower.c		\
+			test_toupper.c		\
+
+OBJ_NAME = $(SRC_NAME:.c=.o)
 
 OBJ = $(addprefix $(OBJ_FOLDER)/,$(OBJ_NAME))
 SRC = $(addprefix $(SRC_FOLDER)/,$(SRC_NAME))
+DST = $(addprefix $(DST_PATH)/,$(NAME))
 
 .SILENT:
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $(DST)
 	printf "\e[32m----------------------------------\e[36m\n"
 	printf "\e[32m[✔]\e[36m $@"
 	printf "\n\e[32m----------------------------------\e[36m"
 	printf "\033[0m\n"
 
-$(OBJ_FOLDER)/%.o: $(SRC_FOLDER)/%.s
+$(OBJ_FOLDER)/%.o: $(SRC_FOLDER)/%.c
 	mkdir -p $(OBJ_FOLDER)
-	nasm -f macho64 $< -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 	printf "\e[32m[✔]\e[36m $@"
 	printf "\033[0m\n"
 
@@ -50,24 +60,14 @@ clean:
 	printf "[✔]\e[36m $(NAME): Objects deleted\n"
 	printf "\e[31m----------------------------------\e[36m"
 	printf "\033[0m\n"
-	@-for i in $(SUB_MAKEFILES) ; do \
-		make -C $$i clean; \
-	done
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(DST)
 	printf "\e[31m----------------------------------\n"
-	printf "[✔]\e[36m $(NAME): All deleted\n"
+	printf "[✔]\e[36m $(DST): All deleted\n"
 	printf "\e[31m----------------------------------\e[36m"
 	printf "\033[0m\n"
-	@for i in $(SUB_MAKEFILES) ; do \
-		make -C $$i fclean; \
-	done
-
-test:
-	make -C test all
-	./tests_exe
 
 re: fclean all
 
-.PHONY: all fclean clean test re
+.PHONY: all fclean clean re
